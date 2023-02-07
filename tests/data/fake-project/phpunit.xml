@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.0/phpunit.xsd"
+         bootstrap="./autoload.php"
+         failOnRisky="true"
+         failOnWarning="true"
+         colors="true">
+    <testsuites>
+        <testsuite name="fake">
+            <directory>./tests/All</directory>
+            <exclude>./tests/All/Exclude</exclude>
+            <directory prefix="Matching" suffix=".php" phpVersionOperator="&gt;=" phpVersion="8.0.0" >./tests/MorePhp800gt</directory>
+            <directory prefix="Matching" suffix=".php" phpVersionOperator="&lt;" phpVersion="8.0.0">./tests/LessPhp800lt</directory>
+            <file>./tests/Alone/AloneTest.php</file>
+            <file phpVersionOperator="&gt;=" phpVersion="8.0.0">./tests/Alone/AloneMorePhp800gtTest.php</file>
+            <file phpVersionOperator="&lt;=" phpVersion="8.0.0">./tests/Alone/AloneLessPhp800ltTest.php</file>
+            <directory suffix="">./tests/Random</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>
